@@ -1,0 +1,13 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Source Word doc kept locally; not needed on Pages
+*.docx
+
+# Old single-file template
+Edward_Murray_Resume_ML_Engineer.html

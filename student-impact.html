@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<!--
+    Lauren Klamm - Individual Student Impact Profiles
+    Author: Lauren Klamm
+    Date: 05/05/2026
+    Purpose: Companion data page focusing on individual-level intervention
+             impact - the per-student work that aggregate scores never quite
+             capture. All profiles are illustrative composites; identifying
+             student data is protected under FERPA.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lauren Klamm &mdash; Individual Student Impact</title>
+    <style>
+        /* Lauren Klamm | 05/05/2026 | Student impact page styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1a1a2e;
+            background: #f0f0f5;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .page {
+            max-width: 8.5in;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f2027 0%, #1e3a5f 50%, #2c5364 100%);
+            color: white;
+            padding: 32px 48px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 220px; height: 100%;
+            background: linear-gradient(135deg, transparent 40%, rgba(250,204,21,0.15) 100%);
+        }
+        .header h1 { font-size: 24px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+        .header .subtitle { font-size: 13.5px; color: #fde68a; margin-bottom: 10px; }
+        .header .meta { font-size: 12px; color: #cbd5e1; }
+        .header .nav { margin-top: 12px; display: flex; gap: 16px; font-size: 12.5px; }
+        .header .nav a {
+            color: #fde68a;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(253,230,138,0.4);
+            padding-bottom: 1px;
+        }
+        .header .nav a:hover { color: #fef3c7; }
+
+        .body { padding: 28px 48px 36px; }
+
+        .section { margin-bottom: 28px; }
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #1e3a5f;
+            border-bottom: 2px solid #1e3a5f;
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+        }
+        .section p {
+            font-size: 13px;
+            color: #334155;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        .section p strong { color: #1e3a5f; }
+
+        .disclaimer {
+            background: #fef9c3;
+            border-left: 3px solid #ca8a04;
+            padding: 10px 14px;
+            font-size: 12px;
+            color: #713f12;
+            line-height: 1.55;
+            margin-bottom: 24px;
+        }
+
+        .student-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 18px 18px 16px;
+            margin-bottom: 18px;
+            background: #fafbfc;
+        }
+        .student-card .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            align-items: start;
+        }
+        .student-card h4 {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+        .student-card .meta {
+            font-size: 11.5px;
+            color: #6366f1;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .student-card p {
+            font-size: 12.5px;
+            color: #475569;
+            line-height: 1.55;
+            margin-bottom: 6px;
+        }
+        .student-card p strong { color: #1e293b; }
+        .student-card .chart-wrap {
+            position: relative;
+            height: 220px;
+            width: 100%;
+        }
+
+        .quote {
+            border-left: 3px solid #fde68a;
+            padding: 8px 12px;
+            margin-top: 8px;
+            font-size: 12.5px;
+            color: #334155;
+            font-style: italic;
+            background: #fffbeb;
+        }
+
+        .principles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 20px;
+        }
+        .principle {
+            border-left: 3px solid #1e3a5f;
+            padding: 6px 0 6px 12px;
+        }
+        .principle h5 {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .principle p {
+            font-size: 12.5px;
+            color: #475569;
+            margin: 0;
+        }
+
+        .footer-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin: 18px auto;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 10px 24px;
+            background: #1e3a5f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .btn:hover { background: #2d4a73; }
+        .btn.alt { background: #047857; }
+        .btn.alt:hover { background: #065f46; }
+
+        @media print {
+            body { background: white; }
+            .page { box-shadow: none; margin: 0; max-width: 100%; }
+            .no-print { display: none; }
+            @page { margin: 0.4in; size: letter; }
+        }
+        @media (max-width: 720px) {
+            .student-card .row { grid-template-columns: 1fr; }
+            .principles { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <div class="header">
+        <h1>Individual Student Impact &mdash; Lauren Klamm</h1>
+        <div class="subtitle">Why &ldquo;one student at a time&rdquo; is the work that drives every aggregate number</div>
+        <div class="meta">Compiled by Lauren Klamm &middot; 05/05/2026</div>
+        <div class="nav">
+            <a href="index.html">&larr; Resume</a>
+            <a href="performance-data.html">SOL Growth Charts &rarr;</a>
+        </div>
+    </div>
+
+    <div class="body">
+
+        <div class="disclaimer">
+            <strong>About these profiles:</strong> The student profiles below are <strong>illustrative composites</strong> that reflect the kinds of growth patterns I see in Tier 2 / Tier 3 intervention. No identifying data is shown &mdash; student records are protected under FERPA. The profiles exist to communicate the <em>shape</em> of the work to a hiring team.
+        </div>
+
+        <div class="section">
+            <div class="section-title">Why Individual-Level Matters for SOL Outcomes</div>
+            <p>State-level SOL pass rates are a building&rsquo;s scoreboard, but they are built one student at a time. A student who moves from a 380 to a 420 on a Reading SOL didn&rsquo;t do it on test day &mdash; they did it across 30+ weeks of small, specific instructional decisions. The work below is what that looks like up close.</p>
+        </div>
+
+        <!-- STUDENT A -->
+        <div class="section">
+            <div class="section-title">Profile A &mdash; Grade 3 Reading, Tier 3</div>
+            <div class="student-card">
+                <div class="row">
+                    <div>
+                        <h4>From below-benchmark to on-grade in one cycle</h4>
+                        <div class="meta">SPIRE &middot; Amplify mCLASS &middot; 20-week cycle</div>
+                        <p><strong>Entry:</strong> DIBELS composite well below benchmark; phonemic segmentation and nonsense-word fluency the limiting sub-skills.</p>
+                        <p><strong>Plan:</strong> SPIRE Levels 1&ndash;2 sequenced to attack segmentation first, then blending, with a daily decoding warm-up and a weekly fluency probe.</p>
+                        <p><strong>Outcome shape:</strong> Steady weekly gains, a plateau at week 9 that triggered a scaffold change, and a strong push to benchmark by EOY.</p>
+                        <div class="quote">&ldquo;Three weeks ago you couldn&rsquo;t read these &mdash; today you did all of them.&rdquo; The student kept that probe in their folder for the rest of the year.</div>
+                    </div>
+                    <div class="chart-wrap"><canvas id="profileA"></canvas></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STUDENT B -->
+        <div class="section">
+            <div class="section-title">Profile B &mdash; Grade 4 Math, Tier 2</div>
+            <div class="student-card">
+                <div class="row">
+                    <div class="chart-wrap"><canvas id="profileB"></canvas></div>
+                    <div>
+                        <h4>Rebuilding fractions without losing computation</h4>
+                        <div class="meta">Foundations Math &middot; Empower &middot; SOL-aligned strand work</div>
+                        <p><strong>Entry:</strong> Solid number sense, weak fractions and multi-step word problems. At risk of failing the Grade 4 Math SOL despite passable classroom work.</p>
+                        <p><strong>Plan:</strong> Concrete-representational-abstract sequence on fractions; word-problem &ldquo;reading&rdquo; routine borrowed from the reading block.</p>
+                        <p><strong>Outcome shape:</strong> Fractions strand jumped from ~25% to ~70% mastery; computation held steady; word-problem accuracy followed once the reading routine clicked.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STUDENT C -->
+        <div class="section">
+            <div class="section-title">Profile C &mdash; Grade 5 Dual Support</div>
+            <div class="student-card">
+                <div class="row">
+                    <div>
+                        <h4>The student who had stopped trying</h4>
+                        <div class="meta">Reading + Math intervention &middot; behavior plan in lockstep with classroom teacher</div>
+                        <p><strong>Entry:</strong> Below grade level in both subjects, low classroom engagement, history of refusing tasks. The academic gap was real but the bigger problem was the belief that effort wouldn&rsquo;t change anything.</p>
+                        <p><strong>Plan:</strong> Short, high-success tasks first, named wins, visible growth chart kept in the student&rsquo;s folder. Weekly sync with the classroom teacher to keep messaging consistent.</p>
+                        <p><strong>Outcome shape:</strong> Skill gains followed the engagement gains, not the other way around. Volunteer hand-raising rose first; reading fluency and math fact recall rose after.</p>
+                        <div class="quote">The score gains matter. What I remember is the day this student walked into intervention and asked, before sitting down, &ldquo;Can I do another one of those probes today?&rdquo;</div>
+                    </div>
+                    <div class="chart-wrap"><canvas id="profileC"></canvas></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OPERATING PRINCIPLES -->
+        <div class="section">
+            <div class="section-title">Operating Principles That Show Up in Every Profile</div>
+            <div class="principles">
+                <div class="principle">
+                    <h5>Diagnose, then teach</h5>
+                    <p>The first 1&ndash;2 sessions of any new student are diagnostic. Instruction is wasted on the wrong sub-skill.</p>
+                </div>
+                <div class="principle">
+                    <h5>Two flat data points = change something</h5>
+                    <p>If progress monitoring is flat for two weeks, the plan changes &mdash; not the expectation of the student.</p>
+                </div>
+                <div class="principle">
+                    <h5>Name the win out loud</h5>
+                    <p>Growth that the student can see is growth they will work for. I keep visible records and reference them often.</p>
+                </div>
+                <div class="principle">
+                    <h5>Stay synced with the classroom</h5>
+                    <p>Intervention is a wedge, not a silo. Weekly contact with the classroom teacher and Interventionist is non-negotiable.</p>
+                </div>
+                <div class="principle">
+                    <h5>Protect the relationship</h5>
+                    <p>Behavior is information. A student who has stopped trying needs the relationship rebuilt before any curriculum will land.</p>
+                </div>
+                <div class="principle">
+                    <h5>Document with fidelity</h5>
+                    <p>Clean Amplify, VALLS, and DIBELS data is how the building makes good decisions. Sloppy data is worse than no data.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer-actions no-print">
+    <a class="btn" href="index.html">&larr; Back to Resume</a>
+    <a class="btn alt" href="performance-data.html">SOL Growth Charts</a>
+    <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+/* Lauren Klamm | 05/05/2026 | Student profile chart definitions */
+(function() {
+    if (typeof Chart === 'undefined') return;
+
+    Chart.defaults.font.family = "'Inter', -apple-system, 'Segoe UI', sans-serif";
+    Chart.defaults.color = '#475569';
+    Chart.defaults.font.size = 11;
+
+    const lineOpts = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { position: 'bottom', labels: { boxWidth: 10, padding: 10, font: { size: 10.5 } } }
+        },
+        scales: {
+            y: { grid: { color: 'rgba(148,163,184,0.18)' } },
+            x: { grid: { display: false } }
+        }
+    };
+
+    // Profile A: weekly DIBELS composite trajectory
+    new Chart(document.getElementById('profileA'), {
+        type: 'line',
+        data: {
+            labels: ['BOY','W2','W4','W6','W8','W10','W12','W14','W16','W18','EOY'],
+            datasets: [
+                {
+                    label: 'Grade 3 Benchmark',
+                    data: [330,335,338,342,346,350,355,360,366,374,384],
+                    borderColor: '#94a3b8',
+                    borderDash: [6,4],
+                    backgroundColor: 'transparent',
+                    tension: 0.2,
+                    pointRadius: 2
+                },
+                {
+                    label: 'Profile A',
+                    data: [255,265,278,290,302,308,318,332,350,370,388],
+                    borderColor: '#1e3a5f',
+                    backgroundColor: 'rgba(30,58,95,0.12)',
+                    tension: 0.3,
+                    pointRadius: 3,
+                    fill: true
+                }
+            ]
+        },
+        options: Object.assign({}, lineOpts, {
+            scales: {
+                y: { title: { display: true, text: 'DIBELS Composite' }, grid: { color: 'rgba(148,163,184,0.18)' } },
+                x: { grid: { display: false } }
+            }
+        })
+    });
+
+    // Profile B: SOL strand mastery pre/post
+    new Chart(document.getElementById('profileB'), {
+        type: 'bar',
+        data: {
+            labels: ['Number\nSense','Computation','Fractions','Measurement','Patterns'],
+            datasets: [
+                {
+                    label: 'Pre',
+                    data: [70, 65, 25, 60, 55],
+                    backgroundColor: 'rgba(148,163,184,0.7)'
+                },
+                {
+                    label: 'Post',
+                    data: [82, 78, 70, 76, 72],
+                    backgroundColor: 'rgba(30,58,95,0.85)'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom', labels: { boxWidth: 10, padding: 10, font: { size: 10.5 } } }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: { display: true, text: '% Mastery' },
+                    grid: { color: 'rgba(148,163,184,0.18)' }
+                },
+                x: { grid: { display: false }, ticks: { font: { size: 10 } } }
+            }
+        }
+    });
+
+    // Profile C: engagement first, then skill
+    new Chart(document.getElementById('profileC'), {
+        type: 'line',
+        data: {
+            labels: ['W1','W3','W5','W7','W9','W11','W13','W15','W17','W19'],
+            datasets: [
+                {
+                    label: 'Engagement (0\u20135)',
+                    data: [1.0, 1.4, 2.1, 2.8, 3.4, 3.8, 4.1, 4.3, 4.4, 4.5],
+                    borderColor: '#047857',
+                    backgroundColor: 'rgba(4,120,87,0.18)',
+                    yAxisID: 'y1',
+                    tension: 0.3,
+                    pointRadius: 3,
+                    fill: true
+                },
+                {
+                    label: 'Reading Fluency (WCPM)',
+                    data: [55, 58, 60, 64, 70, 78, 86, 95, 104, 112],
+                    borderColor: '#1e3a5f',
+                    backgroundColor: 'transparent',
+                    yAxisID: 'y2',
+                    tension: 0.3,
+                    pointRadius: 3
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom', labels: { boxWidth: 10, padding: 10, font: { size: 10.5 } } }
+            },
+            scales: {
+                y1: {
+                    type: 'linear',
+                    position: 'left',
+                    min: 0, max: 5,
+                    title: { display: true, text: 'Engagement' },
+                    grid: { color: 'rgba(148,163,184,0.18)' }
+                },
+                y2: {
+                    type: 'linear',
+                    position: 'right',
+                    min: 40, max: 130,
+                    title: { display: true, text: 'WCPM' },
+                    grid: { display: false }
+                },
+                x: { grid: { display: false } }
+            }
+        }
+    });
+})();
+</script>
+
+</body>
+</html>

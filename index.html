@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<!--
+    Lauren Klamm - Paraprofessional Resume
+    Author: Lauren Klamm
+    Date: 05/05/2026
+    Target Role: Paraprofessional, Stafford County Public Schools
+    Notes: Single-file HTML resume styled to match institutional / professional
+           aesthetic. Includes Print/Save-as-PDF button and links to supporting
+           data pages (performance-data.html, student-impact.html).
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lauren Klamm &mdash; Paraprofessional Resume</title>
+    <style>
+        /* Lauren Klamm | 05/05/2026 | Resume stylesheet (mirrors institutional template) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1a1a2e;
+            background: #f0f0f5;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .resume {
+            max-width: 8.5in;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        @media print {
+            body { background: white; }
+            .resume { box-shadow: none; margin: 0; max-width: 100%; }
+            .no-print { display: none; }
+            @page { margin: 0.4in; size: letter; }
+        }
+
+        /* Header - warm education palette (deep teal/navy with gold accent) */
+        .header {
+            background: linear-gradient(135deg, #0f2027 0%, #1e3a5f 50%, #2c5364 100%);
+            color: white;
+            padding: 36px 48px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 220px; height: 100%;
+            background: linear-gradient(135deg, transparent 40%, rgba(250,204,21,0.15) 100%);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+        }
+
+        .header .title {
+            font-size: 15px;
+            font-weight: 400;
+            color: #fde68a;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 12.5px;
+            color: #cbd5e1;
+        }
+
+        .contact-row span { display: flex; align-items: center; gap: 6px; }
+
+        .credential-badge {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 4px 14px;
+            background: rgba(34,197,94,0.2);
+            border: 1px solid rgba(34,197,94,0.5);
+            border-radius: 20px;
+            color: #86efac;
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+        }
+
+        /* Body */
+        .body { padding: 32px 48px 40px; }
+
+        .section { margin-bottom: 26px; }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #1e3a5f;
+            border-bottom: 2px solid #1e3a5f;
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+        }
+
+        /* Summary */
+        .summary {
+            font-size: 13.5px;
+            line-height: 1.65;
+            color: #334155;
+        }
+
+        .summary strong { color: #1e3a5f; }
+
+        /* Impact metrics row beneath summary - signals data-orientation early */
+        .impact-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .impact-card {
+            border: 1px solid #e2e8f0;
+            border-left: 3px solid #1e3a5f;
+            padding: 10px 12px;
+            background: #f8fafc;
+        }
+
+        .impact-card .num {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a5f;
+            line-height: 1.1;
+        }
+
+        .impact-card .lbl {
+            font-size: 11px;
+            color: #475569;
+            margin-top: 2px;
+            line-height: 1.3;
+        }
+
+        .impact-links {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #475569;
+        }
+
+        .impact-links a {
+            color: #1e3a5f;
+            text-decoration: underline;
+            text-decoration-color: rgba(30,58,95,0.4);
+            font-weight: 500;
+        }
+
+        .impact-links a:hover { text-decoration-color: #1e3a5f; }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 32px;
+        }
+
+        .skill-category h4 {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-category p {
+            font-size: 12.5px;
+            color: #475569;
+            line-height: 1.55;
+        }
+
+        /* Highlights / signature contributions (mirrors "Projects" block) */
+        .highlight {
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 3px solid #fde68a;
+        }
+
+        .highlight:hover { border-left-color: #f59e0b; }
+
+        .highlight h4 {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 1px;
+        }
+
+        .highlight .tech {
+            font-size: 11.5px;
+            color: #6366f1;
+            font-style: italic;
+            margin-bottom: 4px;
+        }
+
+        .highlight ul {
+            padding-left: 16px;
+            font-size: 12.5px;
+            color: #475569;
+        }
+
+        .highlight li { margin-bottom: 2px; }
+
+        /* Experience */
+        .job {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 2px;
+        }
+
+        .job h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .job .dates {
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .job .company {
+            font-size: 12.5px;
+            color: #6366f1;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .job ul {
+            padding-left: 16px;
+            font-size: 12.5px;
+            color: #475569;
+        }
+
+        .job li { margin-bottom: 3px; }
+
+        .job li strong { color: #1e293b; }
+
+        /* Education */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 32px;
+            font-size: 12.5px;
+            color: #475569;
+        }
+
+        .edu-item { display: flex; align-items: center; gap: 8px; }
+        .edu-item .dot {
+            width: 6px; height: 6px;
+            background: #1e3a5f;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Action buttons (Print + chart links) */
+        .actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin: 16px auto;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 26px;
+            background: #1e3a5f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover { background: #2d4a73; }
+
+        .btn.alt { background: #047857; }
+        .btn.alt:hover { background: #065f46; }
+
+        a { color: inherit; text-decoration: none; }
+        a.link { color: #1e3a5f; text-decoration: underline; text-decoration-color: rgba(30,58,95,0.4); font-weight: 500; }
+        a.link:hover { text-decoration-color: #1e3a5f; }
+        .header a { color: #fde68a; }
+        .header a:hover { color: #fef3c7; text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     RESUME BODY
+     Lauren Klamm | 05/05/2026
+     Section order chosen for impact: Summary -> Impact metrics ->
+     Core Skills -> Signature Contributions -> Experience -> Education
+     ============================================================ -->
+<div class="resume">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>LAUREN M. KLAMM</h1>
+        <div class="title">Paraprofessional &nbsp;|&nbsp; Tier 2 &amp; Tier 3 Intervention Specialist &nbsp;|&nbsp; Virginia SOL Preparation</div>
+        <div class="contact-row">
+            <span>Stafford, VA</span>
+            <span>(607) 435-2384</span>
+            <span>laurenmklamm@gmail.com</span>
+            <span><a href="performance-data.html">SOL Growth Data &rarr;</a></span>
+            <span><a href="student-impact.html">Student Impact &rarr;</a></span>
+        </div>
+        <div class="credential-badge">VA DOE PROVISIONAL LICENSE &mdash; ELEMENTARY EDUCATION</div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+        <!-- SUMMARY -->
+        <div class="section">
+            <div class="section-title">Professional Summary</div>
+            <p class="summary">
+                Stafford County paraprofessional delivering <strong>measurable, individualized academic gains</strong> for Tier 2 and Tier 3 learners across grades 2&ndash;5 in Reading and Math. Currently embedded in the Instructional Department at <strong>Winding Creek Elementary</strong>, where I administer Virginia&rsquo;s state-mandated assessments (VALLS, DIBELS) and progress-monitor through Amplify to drive <strong>Virginia SOL readiness</strong>. Prior career as a master craftsperson, museum data technician, and provisionally-licensed elementary art teacher gives me a rare combination: the precision of a conservator, the data fluency of an analyst, and the patience of an educator who has seen what individualized attention does for a struggling student. I plan instruction the way I once planned costume builds &mdash; on time, on standard, and tailored to the person in front of me.
+            </p>
+
+            <!-- Impact metrics row | data points reference performance-data.html -->
+            <div class="impact-row">
+                <div class="impact-card">
+                    <div class="num">Tier 2 &amp; 3</div>
+                    <div class="lbl">Daily intervention caseload, Grades 2&ndash;5</div>
+                </div>
+                <div class="impact-card">
+                    <div class="num">VALLS &middot; DIBELS</div>
+                    <div class="lbl">State-mandated assessments administered</div>
+                </div>
+                <div class="impact-card">
+                    <div class="num">Amplify</div>
+                    <div class="lbl">Progress-monitoring platform of record</div>
+                </div>
+                <div class="impact-card">
+                    <div class="num">SPIRE &middot; Foundations</div>
+                    <div class="lbl">Reading &amp; Math intervention curricula</div>
+                </div>
+            </div>
+            <p class="impact-links">
+                Detailed growth charts and case studies: <a href="performance-data.html">SOL &amp; Intervention Growth &rarr;</a> &nbsp;&middot;&nbsp; <a href="student-impact.html">Individual Student Impact &rarr;</a>
+            </p>
+        </div>
+
+        <!-- CORE COMPETENCIES -->
+        <div class="section">
+            <div class="section-title">Core Competencies</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Intervention &amp; SOL Preparation</h4>
+                    <p>Tier 2 / Tier 3 Reading &amp; Math instruction, SPIRE, Empower, Foundations Math, small-group and 1:1 delivery, lesson-plan adaptation aligned to Virginia Standards of Learning</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Assessment &amp; Progress Monitoring</h4>
+                    <p>VALLS, DIBELS, Amplify mCLASS, classroom benchmarking, state-mandated data collection, longitudinal student-growth tracking</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Classroom &amp; Behavior Management</h4>
+                    <p>Handle With Care certified, reward-based behavior systems, IEP-aware instruction, dyslexia awareness, child-abuse recognition, CPR/AED</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Data &amp; Records</h4>
+                    <p>Microsoft Excel (Power Query, Power Pivot, pivot tables, data validation, modeling), Proficio, MOSAiC, Microsoft Office, Adobe Photoshop, Corel Painter</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIGNATURE CONTRIBUTIONS -->
+        <div class="section">
+            <div class="section-title">Signature Contributions to Student Growth</div>
+
+            <div class="highlight">
+                <h4>Individual SOL-Aligned Growth in Reading &mdash; Tier 3 Caseload &nbsp;<a class="link" href="performance-data.html" style="font-size:11.5px;font-weight:500;">View Charts &rarr;</a></h4>
+                <div class="tech">SPIRE &middot; Amplify mCLASS &middot; DIBELS &middot; small-group instruction</div>
+                <ul>
+                    <li>Designed and delivered <strong>individualized scope-and-sequence</strong> for Tier 3 readers in Grades 2&ndash;5, producing documented gains in DIBELS composite scores across the intervention cycle</li>
+                    <li>Used <strong>weekly Amplify progress-monitoring</strong> to adjust pacing and skill targets, ensuring instructional minutes were spent on the precise sub-skill blocking each student&rsquo;s SOL readiness</li>
+                    <li>Partnered with classroom teachers and the Reading Interventionist to align push-in / pull-out support with grade-level core instruction</li>
+                </ul>
+            </div>
+
+            <div class="highlight">
+                <h4>Math Foundations Recovery &mdash; Tier 2 Intervention Groups &nbsp;<a class="link" href="student-impact.html" style="font-size:11.5px;font-weight:500;">View Impact &rarr;</a></h4>
+                <div class="tech">Foundations Math &middot; Empower &middot; SOL-aligned skill ladders</div>
+                <ul>
+                    <li>Identified foundational skill gaps (number sense, fact fluency, fractions) and rebuilt them through <strong>concrete-representational-abstract</strong> sequencing</li>
+                    <li>Tracked benchmark growth and shared <strong>data summaries with classroom teachers</strong> at weekly collaboration meetings to keep core instruction and intervention synchronized</li>
+                    <li>Built student confidence through visible, celebrated wins &mdash; converting math-avoidant students into <strong>volunteer participants</strong> in whole-group instruction</li>
+                </ul>
+            </div>
+
+            <div class="highlight">
+                <h4>State-Mandated Assessment Administration</h4>
+                <div class="tech">VALLS &middot; DIBELS &middot; Amplify data integrity</div>
+                <ul>
+                    <li>Administer state-mandated literacy screeners and progress monitors with <strong>fidelity to protocol</strong>, producing clean data the building can act on</li>
+                    <li>Trusted to <strong>substitute teach</strong> across grade levels when classroom coverage is needed &mdash; demonstrating versatility and institutional reliability</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="section">
+            <div class="section-title">Professional Experience</div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h4>Paraprofessional &mdash; Instructional Department</h4>
+                    <span class="dates">2025 &ndash; Present</span>
+                </div>
+                <div class="company">Winding Creek Elementary School &mdash; Stafford County Public Schools, Stafford, VA</div>
+                <ul>
+                    <li>Prepare and implement <strong>Tier 2 and Tier 3 intervention</strong> lessons in Reading and Math for students in Grades 2&ndash;5</li>
+                    <li>Progress-monitor Tier 2 / Tier 3 students in <strong>Amplify</strong> to collect state-mandated data and inform instructional adjustments</li>
+                    <li>Administer <strong>VALLS</strong> and <strong>DIBELS</strong> assessments with fidelity to state protocol</li>
+                    <li>Deliver instruction across <strong>Amplify, SPIRE, Empower, and Foundations (Math)</strong> intervention curricula</li>
+                    <li>Collaborate daily with classroom teachers, Interventionists, and Administration to keep intervention aligned with core instruction</li>
+                    <li>Substitute teach across grade levels as needed</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h4>Elementary Art Educator &mdash; Provisionally Licensed</h4>
+                    <span class="dates">2024</span>
+                </div>
+                <div class="company">Spotsylvania County Public Schools, Spotsylvania, VA</div>
+                <ul>
+                    <li>Held <strong>Virginia DOE Provisional Teaching License</strong> in Elementary Art Education; passed <strong>Praxis 5134 (Art: Content &amp; Knowledge)</strong></li>
+                    <li>Planned and delivered curriculum for <strong>Pre-K through 5th grade</strong>, including students with IEPs</li>
+                    <li>Managed classroom behavior with a <strong>reward-points system</strong>; completed mandated training in IEP, dyslexia awareness, and child-abuse recognition</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h4>Inventory Technician</h4>
+                    <span class="dates">2019 &ndash; 2021</span>
+                </div>
+                <div class="company">The Valentine Museum, Richmond, VA</div>
+                <ul>
+                    <li>Built and maintained collection records in <strong>Proficio</strong> and Excel under strict cataloging guidelines &mdash; the same data discipline I now bring to Amplify progress data</li>
+                    <li>Conducted provenance research and <strong>quality-control audits</strong> to keep the Costume &amp; Textile Department&rsquo;s records authoritative</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h4>Freelance Textile Conservation Technician</h4>
+                    <span class="dates">2018 &ndash; 2019</span>
+                </div>
+                <div class="company">Various Institutions &mdash; Washington, DC and Bangkok, Thailand</div>
+                <ul>
+                    <li>Treated and mounted textiles; prepared <strong>final treatment reports</strong> with full photo documentation; maintained records in MOSAiC</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h4>Textile Conservation Technician &amp; Office Manager</h4>
+                    <span class="dates">2014 &ndash; 2018</span>
+                </div>
+                <div class="company">Caring for Textiles &mdash; Textile Conservation Studio, Washington, DC</div>
+                <ul>
+                    <li><strong>Sustained business operations independently</strong> for up to three-month stretches while the Senior Conservator was abroad &mdash; scheduling, client coordination, and project delivery</li>
+                    <li>Coordinated projects with the <strong>Smithsonian American Art Museum</strong>, <strong>National Museum of African American History &amp; Culture</strong>, the <strong>Folger Shakespeare Library</strong>, and the <strong>Queen Sirikit Museum of Textiles</strong> (Bangkok)</li>
+                    <li>Compiled supplier, expense, and profitability databases; assessed objects and built treatment plans alongside Senior Conservator Julia Brennan</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h4>Head of Costume Craft Department</h4>
+                    <span class="dates">2011 &ndash; 2014</span>
+                </div>
+                <div class="company">Washington National Opera &mdash; Costume Studio, Washington, DC</div>
+                <ul>
+                    <li>Led a crew of up to <strong>four craft artisans</strong>, owning build lists, time estimates, and quality control under unmovable opening-night deadlines</li>
+                    <li>Translated designer intent into deliverables &mdash; the same translation skill I now apply taking a teacher&rsquo;s lesson objective and meeting a struggling student where they actually are</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EDUCATION & CERTIFICATIONS -->
+        <div class="section">
+            <div class="section-title">Education &amp; Certifications</div>
+            <div class="edu-grid">
+                <div class="edu-item"><div class="dot"></div><span><strong>Virginia DOE Provisional License</strong> &mdash; Elementary Education</span></div>
+                <div class="edu-item"><div class="dot"></div><span><strong>Praxis 5134</strong> &mdash; Art: Content &amp; Knowledge (Passed)</span></div>
+                <div class="edu-item"><div class="dot"></div><span><strong>Behavior Management in the Elementary Classroom</strong> &mdash; Univ. of Mary Washington, Fall 2025</span></div>
+                <div class="edu-item"><div class="dot"></div><span><strong>Handle With Care</strong> Certified &middot; <strong>CPR / AED</strong> Trained</span></div>
+                <div class="edu-item"><div class="dot"></div><span><strong>M.F.A. Costume Design</strong> &mdash; Florida State University, 2010</span></div>
+                <div class="edu-item"><div class="dot"></div><span><strong>B.A. Theatre Design &amp; Technology</strong> &mdash; SUNY New Paltz, 2006</span></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Action buttons | hidden on print -->
+<div class="actions no-print">
+    <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+    <a class="btn alt" href="performance-data.html">View SOL Growth Charts</a>
+    <a class="btn alt" href="student-impact.html">View Student Impact</a>
+</div>
+
+</body>
+</html>
